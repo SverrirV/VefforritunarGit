@@ -22,19 +22,26 @@
                 {
                     <p>You have not rated this movie</p>    
                 }  
-                @using (Html.BeginForm("RateMovie", "MovieApp", new { id = "rateform" }))
+                @using (Html.BeginForm("RateMovie", "MovieApp"))
                 {
                     <input type="hidden" name="movieid" value="@Model.Id" />
                     <div class="form-horizontal">
                         <label class="sr-only" for="rateinfo">Rate</label>                        
                         <div id="myDiv" class="rating">
-                            <input type="radio" name="r" id="r1" value="5"><label for="r1">5</label>
-                            <input type="radio" name="r" id="r2" value="4"><label for="r2">4</label>
+                            <input type="radio" name="r" id="r10" value="10"><label for="r10">10</label>
+                            <input type="radio" name="r" id="r9" value="9"><label for="r9">9</label>
+                            <input type="radio" name="r" id="r8" value="8"><label for="r8">8</label>
+                            <input type="radio" name="r" id="r7" value="7"><label for="r7">7</label>
+                            <input type="radio" name="r" id="r6" value="6"><label for="r6">6</label>
+
+                            <input type="radio" name="r" id="r5" value="5"><label for="r5">5</label>                           
+                            <input type="radio" name="r" id="r4" value="4"><label for="r4">4</label>
                             <input type="radio" name="r" id="r3" value="3"><label for="r3">3</label>
-                            <input type="radio" name="r" id="r4" value="2"><label for="r4">2</label>
-                            <input type="radio" name="r" id="r5" value="1"><label for="r5">1</label>
+                            <input type="radio" name="r" id="r2" value="2"><label for="r2">2</label>
+                            <input type="radio" name="r" id="r1" value="1"><label for="r1">1</label>
+                            
                         </div>
-                        <button type="submit" class="btn btn-primary">Rate</button>
+                        <button type="submit" class="btn btn-primary" id="submitrating">Rate</button>
                     </div>
                     @Html.ValidationSummary(false)
                 }                
@@ -146,7 +153,7 @@
                 <div class="form-horizontal">
                     <label class="sr-only" for="reviewtext">Review</label>
                     <textarea class="form-control" rows="5" id="reviewtext" name="reviewtext" style="max-width:100%"></textarea>
-                    <button type="submit" class="btn btn-primary">Send</button>
+                    <button type="submit" class="btn btn-primary" id="submitreview">Send</button>
                 </div>
                 @Html.ValidationSummary(false)
             }

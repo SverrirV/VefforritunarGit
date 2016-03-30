@@ -44,10 +44,27 @@
 
         $(function () {
 
-            $('rateform').on('submit', function () {
-                alert('Þetta virkar');
-                return false;
+            $('#submitrating').on('click', function () {
+                
+                var form = $(this).parents('form');
+                
+                $.ajax({
+                    url: form.attr('action'),
+                    data: form.serialize(),
+                    method: 'POST',
+                    success: function (responseData) {
+                        console.log(responseData);
+                    }
+                });
+            });
 
+        });
+
+        $(function () {
+
+            $('#submitreview').closest('form').on('submit', function () {
+                alert('Review virkar');
+                return false;
             });
 
         });

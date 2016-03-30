@@ -58,7 +58,7 @@ input[type=radio] + label:before{
   width:50px;
   margin-right: 2px;
   content: " ";
-  display:inline-block;
+  display: inline-block;
   vertical-align: baseline;
   border:1px solid #777;
   background: url("Images/chuck.png");
@@ -67,7 +67,7 @@ input[type=radio] + label:before{
 }
 
 label{
-    color: black;
+    color: dark-gray;
 }
 
 .rating :hover + label:before{
@@ -95,7 +95,5 @@ input[type=radio]:checked + label:before{
 
 .rating {
   unicode-bidi: bidi-override;
-  direction: rtl;
+  direction: ltr;
 }
-
-
