@@ -13,32 +13,34 @@
         <div class="thumbnail">
             <img alt="poster" src="@Url.Content(Model.ThumbnailUrlSmall)" data-holder-rendered="true" style="height: 317px; width: 214px; display: block;">
             <div class="caption">
-                <h3>Rating: @Model.RatingOverall</h3>                                
-                @if(Model.CurrentUserRating != null)
-                {
-                    <p>I rated @Model.CurrentUserRating.rating Stars</p>
-                }
-                else
-                {
-                    <p>You have not rated this movie</p>    
-                }  
+                <div id="rates">
+                    <h3>Rating: @Model.RatingOverall</h3>
+                    @if (Model.CurrentUserRating != null)
+                    {
+                        <p>I rated @Model.CurrentUserRating.rating Stars</p>
+                    }
+                    else
+                    {
+                        <p>You have not rated this movie</p>
+                    }
+                </div> 
                 @using (Html.BeginForm("RateMovie", "MovieApp"))
                 {
                     <input type="hidden" name="movieid" value="@Model.Id" />
                     <div class="form-horizontal">
                         <label class="sr-only" for="rateinfo">Rate</label>                        
                         <div id="myDiv" class="rating">
-                            <input type="radio" name="r" id="r10" value="10"><label for="r10">10</label>
-                            <input type="radio" name="r" id="r9" value="9"><label for="r9">9</label>
-                            <input type="radio" name="r" id="r8" value="8"><label for="r8">8</label>
-                            <input type="radio" name="r" id="r7" value="7"><label for="r7">7</label>
-                            <input type="radio" name="r" id="r6" value="6"><label for="r6">6</label>
+                            <input type="radio" name="rateinfo" id="r10" value="10"><label for="r10">10</label>
+                            <input type="radio" name="rateinfo" id="r9" value="9"><label for="r9">9</label>
+                            <input type="radio" name="rateinfo" id="r8" value="8"><label for="r8">8</label>
+                            <input type="radio" name="rateinfo" id="r7" value="7"><label for="r7">7</label>
+                            <input type="radio" name="rateinfo" id="r6" value="6"><label for="r6">6</label>
 
-                            <input type="radio" name="r" id="r5" value="5"><label for="r5">5</label>                           
-                            <input type="radio" name="r" id="r4" value="4"><label for="r4">4</label>
-                            <input type="radio" name="r" id="r3" value="3"><label for="r3">3</label>
-                            <input type="radio" name="r" id="r2" value="2"><label for="r2">2</label>
-                            <input type="radio" name="r" id="r1" value="1"><label for="r1">1</label>
+                            <input type="radio" name="rateinfo" id="r5" value="5"><label for="r5">5</label>                           
+                            <input type="radio" name="rateinfo" id="r4" value="4"><label for="r4">4</label>
+                            <input type="radio" name="rateinfo" id="r3" value="3"><label for="r3">3</label>
+                            <input type="radio" name="rateinfo" id="r2" value="2"><label for="r2">2</label>
+                            <input type="radio" name="rateinfo" id="r1" value="1"><label for="r1">1</label>
                             
                         </div>
                         <button type="submit" class="btn btn-primary" id="submitrating">Rate</button>
@@ -138,7 +140,7 @@
 
 <div class="row">
     <div class="col-sm-6 col-md-12">        
-        <section>
+        <section id="revs">
             <h4>Reviews</h4>
             @foreach(var review in Model.Reviews)
             {

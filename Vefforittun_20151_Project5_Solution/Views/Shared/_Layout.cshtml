@@ -44,8 +44,28 @@
 
         $(function () {
 
-            $('#submitrating').on('click', function () {
-                
+            $('#submitrating').click(function () {
+
+                var form = $(this).parents('form');
+
+                $.ajax({
+                    url: form.attr('action'),
+                    data: form.serialize(),
+                    method: 'POST',
+                    success: function (responseData) {
+                        $('#rates').replaceWith($(responseData).find('#rates'));
+                    }
+
+                });
+                return false;
+            });
+
+        });
+
+        $(function () {
+
+            $('#submitreview').click(function () {
+
                 var form = $(this).parents('form');
                 
                 $.ajax({
@@ -53,17 +73,11 @@
                     data: form.serialize(),
                     method: 'POST',
                     success: function (responseData) {
-                        console.log(responseData);
+                        $('#revs').replaceWith($(responseData).find('#revs'));
                     }
+
                 });
-            });
-
-        });
-
-        $(function () {
-
-            $('#submitreview').closest('form').on('submit', function () {
-                alert('Review virkar');
+                $('#reviewtext').val("");
                 return false;
             });
 
